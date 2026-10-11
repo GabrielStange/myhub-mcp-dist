@@ -55,8 +55,8 @@ No **Claude Desktop**, o MyHUB aparece em **Configurações → Desenvolvedor** 
 
 ## Painel de uso
 
-Abra o atalho **"MyHUB MCP - Painel"** ou peça ao Claude *"abra o painel do myhub"*. O painel local
-(http://127.0.0.1:8765, acessível só no seu computador) mostra:
+Acesse **http://127.0.0.1:8765** (o painel inicia com o Windows), abra o atalho **"MyHUB MCP - Painel"** ou peça ao
+Claude *"abra o painel do myhub"*. O painel, acessível só no seu computador, mostra:
 
 - o status da sua sessão e os créditos;
 - se o Claude Desktop e o Claude Code estão conectados;

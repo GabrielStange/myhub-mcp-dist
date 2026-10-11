@@ -14,30 +14,50 @@ Abra o **PowerShell** (menu Iniciar → digite *PowerShell*; não precisa ser ad
 irm https://github.com/GabrielStange/myhub-mcp-dist/releases/latest/download/install.ps1 | iex
 ```
 
-É só isso. O instalador:
-
-1. prepara o Python (via [uv](https://docs.astral.sh/uv/)), sem mexer em nada que você já tenha instalado;
-2. abre um navegador para você **entrar na sua conta do MyHUB.IA**. A senha fica só no navegador; o instalador nunca a vê;
-3. conecta o MyHUB ao **Claude Code** e ao **Claude Desktop**. O Claude Desktop é reiniciado automaticamente;
-4. cria o atalho **"MyHUB.IA (sessão do MCP)"** na área de trabalho.
-
-No final, você deve ver algo assim:
+O instalador prepara tudo e abre um **assistente** que você navega com as setas, o espaço e o Enter:
 
 ```
-MyHUB MCP 0.2.0 - instalador
-  Python (uv) ......................... ok
-  Pacote MyHUB MCP 0.2.0 .............. ok
+  MyHUB MCP · configuração
 
-Configurando o MyHUB MCP
-  [1/5] Navegador para login .......... ok
-  [2/5] Login no MyHUB.IA ............. ok (607 de 1000 créditos)
-  [3/5] Claude Code ................... ok
-  [4/5] Claude Desktop ................ reiniciando o app... conectado (14 ferramentas)
-  [5/5] Atalho do site ................ ok
+━━ Passo 1/6 · Verificando o ambiente ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ✓ Windows 11
+  ✓ acesso a myhub.ia.br
+  ✓ Claude Desktop instalado
+  ! Claude Code não encontrado
+  ! GitHub CLI não encontrado (opcional: abre issues automaticamente)
+
+━━ Passo 2/6 · Onde usar o MyHUB ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+? Em quais aplicativos o MyHUB deve aparecer?  (espaço marca, Enter confirma)
+ » ● Claude Desktop (aplicativo)
+   ● Claude Code (terminal)
 ```
 
-Pré-requisitos: Windows 10/11 e o Claude Desktop e/ou o Claude Code já instalados
-([Claude Desktop](https://claude.ai/download) · Claude Code: `irm https://claude.ai/install.ps1 | iex`).
+1. **Ambiente:** verifica o Windows, a rede e os aplicativos.
+2. **Onde usar:** Claude Desktop e/ou Claude Code. Se faltar algum, o assistente oferece instalar.
+3. **Conta do MyHUB.IA:** abre o navegador para você entrar. A senha fica só no navegador.
+4. **Preferências:** modelo padrão, qualidade das imagens e fuso horário.
+5. **Relatório de problemas:** automático (com o GitHub CLI, que o assistente pode instalar), pelo navegador ou desligado.
+6. **Painel e atalhos.**
+
+Depois de você confirmar o resumo, ele conecta o MyHUB aos aplicativos, reinicia o Claude Desktop e confirma
+que o servidor carregou.
+
+Pré-requisitos: Windows 10/11 e uma conta no MyHUB.IA.
+
+## Comando `myhub`
+
+Em qualquer PowerShell aberto depois da instalação:
+
+| Comando | Para quê |
+|---|---|
+| `myhub setup` | Refaz o assistente (as respostas anteriores vêm como padrão) |
+| `myhub doctor` | Mostra o que está funcionando e o que falta (não gasta créditos) |
+| `myhub login` | Entra de novo na conta do MyHUB.IA |
+| `myhub site` | Abre o MyHUB.IA sem desconectar o Claude |
+| `myhub painel` | Abre o painel de uso |
+| `myhub config set default_model CLAUDE_OPUS_5_5` | Muda uma preferência (`myhub config list` mostra todas) |
+| `myhub update` | Atualiza para a versão mais recente |
+| `myhub uninstall` | Remove o MyHUB MCP |
 
 ## Como usar
 
@@ -85,17 +105,8 @@ gh auth login
 
 Sem ele, o Claude abre no navegador a página da issue já preenchida, e você só clica em enviar.
 
-## Atualizar, verificar e desinstalar
-
-| Ação | Comando no PowerShell |
-|---|---|
-| Atualizar | rode o mesmo comando de instalação |
-| Verificar (não gasta créditos) | `& "$env:APPDATA\uv\tools\myhub-mcp\Scripts\myhub-doctor.exe"` |
-| Desinstalar | `& "$env:APPDATA\uv\tools\myhub-mcp\Scripts\myhub-setup.exe" --uninstall; uv tool uninstall myhub-mcp` |
-
-Seus dados (a sessão do MyHUB) ficam em `%LOCALAPPDATA%\myhub-mcp`. Não compartilhe essa pasta.
-
 ## Problemas?
 
+Rode `myhub doctor`: ele diz o que falta e como resolver. 
 O log da instalação fica em `%TEMP%\myhub-mcp-install.log`. Envie-o junto com a mensagem de erro para quem
 compartilhou este instalador com você.

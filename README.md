@@ -42,7 +42,10 @@ O instalador prepara tudo e abre um **assistente** que você navega com as setas
 Depois de você confirmar o resumo, ele conecta o MyHUB aos aplicativos, reinicia o Claude Desktop e confirma
 que o servidor carregou.
 
-Pré-requisitos: Windows 10/11 e uma conta no MyHUB.IA.
+Pré-requisitos: Windows 10 (1809+) ou 11 e uma conta no MyHUB.IA. Numa máquina nova, **não instale nada antes**:
+o assistente instala o Claude Desktop, o Claude Code e o GitHub CLI (com ou sem `winget`), abre cada um
+para você entrar na sua conta e confere tudo no final. O Claude Code exige plano Claude Pro, Max, Team ou
+Enterprise; o Claude Desktop funciona com qualquer plano.
 
 ## Comando `myhub`
 

@@ -53,6 +53,19 @@ Na primeira vez que cada ferramenta for usada, o Claude pede sua autorização.
 
 No **Claude Desktop**, o MyHUB aparece em **Configurações → Desenvolvedor** e no menu de ferramentas da conversa.
 
+## Painel de uso
+
+Abra o atalho **"MyHUB MCP - Painel"** ou peça ao Claude *"abra o painel do myhub"*. O painel local
+(http://127.0.0.1:8765, acessível só no seu computador) mostra:
+
+- o status da sua sessão e os créditos;
+- se o Claude Desktop e o Claude Code estão conectados;
+- gráficos de uso por dia, ferramenta e modelo;
+- o histórico de chamadas e as issues;
+- um guia de uso.
+
+O conteúdo das conversas nunca é registrado.
+
 ## Importante: uma sessão por conta
 
 O MyHUB.IA aceita **uma sessão ativa por conta**. Se você entrar no site pelo seu navegador normal, o Claude perde

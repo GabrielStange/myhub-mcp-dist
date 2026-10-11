@@ -59,6 +59,19 @@ O MyHUB.IA aceita **uma sessão ativa por conta**. Se você entrar no site pelo 
 o acesso, e vice-versa. Para usar o site junto com o Claude, abra-o pelo atalho **"MyHUB.IA (sessão do MCP)"**.
 Se o Claude disser que a sessão expirou, abra esse atalho e faça login nele.
 
+## Relatório automático de problemas
+
+O MyHUB.IA muda sem aviso. Quando algo quebrar, o Claude abre sozinho uma issue no repositório do projeto,
+**sem o conteúdo das suas conversas**, só os dados técnicos do erro. Para o envio ser automático, deixe o
+GitHub CLI autenticado com a conta que tem acesso ao repositório:
+
+```powershell
+winget install GitHub.cli
+gh auth login
+```
+
+Sem ele, o Claude abre no navegador a página da issue já preenchida, e você só clica em enviar.
+
 ## Atualizar, verificar e desinstalar
 
 | Ação | Comando no PowerShell |
